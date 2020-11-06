@@ -17,6 +17,11 @@
 .filter-container {
   width: auto;
 }
+.cards-container {
+  padding-right: 25px;
+  margin-top: 10px;
+}
+
 .filter-table {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -35,9 +40,15 @@
   }
   .filter-container {
     width: 20%;
+    height: 820px;
   }
   .cards-container {
     width: 80%;
+    padding-right: 0px;
+    margin-top: 0px;
+  }
+  .cards-element {
+    max-width: 212px;
   }
 }
 
@@ -54,7 +65,6 @@
 
 .cards-element {
   width: 100%;
-    max-width: 212px;
     display: inline-block;
     margin-right: 10px;
     background-color: white;
