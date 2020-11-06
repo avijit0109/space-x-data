@@ -10,6 +10,7 @@
   background: white;
   border-radius: 10px;
   padding: 1em;
+  margin-right: 15px;
 }
 
 .cards-container,
@@ -27,7 +28,7 @@
   text-align: center;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 700px) {
   /* For desktop: */
   .dashboard-wrapper {
     flex-direction: row;
@@ -50,3 +51,50 @@
 .container-heading {
   margin-left: 1em;
 }
+
+.cards-element {
+  width: 100%;
+    max-width: 212px;
+    display: inline-block;
+    margin-right: 10px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.cards-element-image {
+  object-fit: cover;
+    height: 148px;
+    background-color: white;
+}
+
+.card-element-details {
+    height: 203px;
+    background-color: white;
+    overflow-y: hidden;
+    margin-top: 10px;
+    padding-left: 13px;
+    text-align: left;
+}
+
+.card-element-scroll {
+  overflow-y: scroll;
+}
+
+.card-element-details p {
+  font-size: 14px;
+}
+
+.card-element-details ul li {
+  font-size: 14px;
+}
+
+.cards-container-block {
+  text-align: center;
+}
+
+.cards-element__heading {
+  color: rgb(132, 132, 235)
+}
+

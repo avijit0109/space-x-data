@@ -15,10 +15,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.launches$ = this.getAllLaunchesData();
+    this.launches$.subscribe(res => {
+      console.log('{{{{', res);
+    });
   }
 
   getAllLaunchesData(): Observable<any> {
-    
    return this.dataService.getAllLaunches();
   }
 

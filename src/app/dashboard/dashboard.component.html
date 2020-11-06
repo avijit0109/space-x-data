@@ -30,10 +30,29 @@
       
     </div>
     <div class="cards-container">
-      <div *ngIf="launches$ | async as launches">
-        <li *ngFor="let launch of launches; index as i">
+      <div class="cards-container-block" *ngIf="launches$ | async as launches">
+        <div *ngFor="let launch of launches; index as i" class="cards-element">
+            <div class="cards-element-image">
+              <img [src]="launch.links.mission_patch">
+            </div>
+            <div class="card-element-details" [ngClass]="{'card-element-scroll': launch.mission_id.length >= 2}">
+              <p class="cards-element__heading">{{launch.mission_name}}</p>
+              <p>Mission ids</p>
+              <ul>
+                <li *ngFor="let ids of launch.mission_id; index as i">
+                {{ids}}
+                </li>
+              </ul>
+                <p>Launch Year :  {{launch.launch_year}}</p>
+                <p>SuccessFul Launch :  {{launch.launch_success}}</p>
+                <p *ngIf="launch.launch_failure_details">SuccessFul Landing :  true</p>  
+                <p *ngIf="!launch.launch_failure_details">SuccessFul Landing :  false</p>      
+            </div>
+        </div>
+        <!-- <li >
+          
           {{ i + 1 }}. {{ launch.mission_name}}
-        </li>
+        </li> -->
       </div>
     </div>
   </div>
