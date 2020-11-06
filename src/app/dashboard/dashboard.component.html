@@ -7,52 +7,37 @@
       <!-- Launch year Filter section -->
       <div class="filter-heading">Launch year</div>
       <div class="filter-table">
-        <app-filter-button class="filter-item" *ngFor="let filterVal of filterRange" [filterVal]="filterVal" [currentVal]="currentYear" 
-          (click)="filterYearSelection(filterVal)"></app-filter-button>
+        <app-filter-button class="filter-item" *ngFor="let filterVal of filterRange" [filterVal]="filterVal"
+          [currentVal]="filterState[constants.LAUNCH_YEAR]" (click)="filterSelection(constants.LAUNCH_YEAR, filterVal)">
+        </app-filter-button>
       </div>
       <!-- Launch year Filter section ends -->
 
       <!-- Succesful Launch Filter section -->
       <div class="filter-heading">Succesful Launch</div>
       <div class="filter-table">
-        <app-filter-button class="filter-item" filterVal="True" (click)="filterLaunchSelection(true)"></app-filter-button>
-        <app-filter-button class="filter-item" filterVal="False" (click)="filterLaunchSelection(false)"></app-filter-button>
+        <app-filter-button class="filter-item" filterVal="True" [currentVal]="filterState[constants.LAUNCH_SUCCESS]"
+          (click)="filterSelection(constants.LAUNCH_SUCCESS, true)"></app-filter-button>
+        <app-filter-button class="filter-item" filterVal="False" [currentVal]="filterState[constants.LAUNCH_SUCCESS]"
+          (click)="filterSelection(constants.LAUNCH_SUCCESS, false)"></app-filter-button>
       </div>
       <!-- Succesful Launch Filter section ends -->
 
       <!-- Succesful Landing Filter section -->
       <div class="filter-heading">Succesful Landing</div>
       <div class="filter-table">
-        <app-filter-button class="filter-item" filterVal="True" (click)="filterLandingSelection(true)"></app-filter-button>
-        <app-filter-button class="filter-item" filterVal="False" (click)="filterLandingSelection(false)"></app-filter-button>
+        <app-filter-button class="filter-item" filterVal="True" [currentVal]="filterState[constants.LAND_SUCCESS]"
+          (click)="filterSelection(constants.LAND_SUCCESS, true)"></app-filter-button>
+        <app-filter-button class="filter-item" filterVal="False" [currentVal]="filterState[constants.LAND_SUCCESS]"
+          (click)="filterSelection(constants.LAND_SUCCESS, false)"></app-filter-button>
       </div>
       <!-- Succesful Landing Filter section ends -->
-      
+
     </div>
     <div class="cards-container">
       <div class="cards-container-block" *ngIf="launches$ | async as launches">
-        <div *ngFor="let launch of launches; index as i" class="cards-element">
-            <div class="cards-element-image">
-              <img [src]="launch.links.mission_patch">
-            </div>
-            <div class="card-element-details" [ngClass]="{'card-element-scroll': launch.mission_id.length >= 2}">
-              <p class="cards-element__heading">{{launch.mission_name}}</p>
-              <p>Mission ids</p>
-              <ul>
-                <li *ngFor="let ids of launch.mission_id; index as i">
-                {{ids}}
-                </li>
-              </ul>
-                <p>Launch Year :  {{launch.launch_year}}</p>
-                <p>SuccessFul Launch :  {{launch.launch_success}}</p>
-                <p *ngIf="launch.launch_failure_details">SuccessFul Landing :  true</p>  
-                <p *ngIf="!launch.launch_failure_details">SuccessFul Landing :  false</p>      
-            </div>
-        </div>
-        <!-- <li >
-          
-          {{ i + 1 }}. {{ launch.mission_name}}
-        </li> -->
+        <app-result-cards class="cards-element" [launchData]="launch" *ngFor="let launch of launches; index as i">
+        </app-result-cards>
       </div>
     </div>
   </div>

@@ -8,6 +8,7 @@ import { FilterButtonComponent } from "./dashboard/filter-button/filter-button.c
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { SpinnerComponent } from "./shared/spinner/spinner.component";
 import { LoadingInterceptor } from './services/loading.interceptor';
+import { ResultCardsComponent } from './result-cards/result-cards.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { LoadingInterceptor } from './services/loading.interceptor';
     DashboardComponent,
     FilterButtonComponent,
     SpinnerComponent,
+    ResultCardsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "serverApp" }),

@@ -1,0 +1,16 @@
+<div class="cards-element-image">
+  <img [src]="launchData.links.mission_patch" />
+</div>
+<div class="card-element-details" [ngClass]="{ 'card-element-scroll': launchData.mission_id.length >= 2 }">
+  <p class="cards-element__heading">{{ launchData.mission_name }}</p>
+  <p>Mission ids</p>
+  <ul>
+    <li *ngFor="let ids of launchData.mission_id; index as i">
+      {{ ids }}
+    </li>
+  </ul>
+  <p>Launch Year : {{ launchData.launch_year }}</p>
+  <p>SuccessFul Launch : {{ launchData.launch_success }}</p>
+  <p *ngIf="launchData.launch_failure_details">SuccessFul Landing : true</p>
+  <p *ngIf="!launchData.launch_failure_details">SuccessFul Landing : false</p>
+</div>

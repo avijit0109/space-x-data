@@ -19,6 +19,13 @@ export class DataService {
     return this.http.get(API_PREFIX, {}).pipe(catchError(this.handleError));
   }
 
+  // Launch & Land Success/Failure Filter
+  getFilterData(query: string) {
+    return this.http
+      .get(`${API_PREFIX}&${query}`, {})
+      .pipe(catchError(this.handleError));
+  }
+
   // Launch Success / failure Filter
   getLaunchFilterData(launch = true) {
     return this.http
@@ -43,7 +50,7 @@ export class DataService {
       .pipe(catchError(this.handleError));
   }
 
-  private handleError(err) {
+  private handleError(err: { error: { message: any; }; status: any; body: { error: any; }; }) {
     let errorMessage: string;
     if (err.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

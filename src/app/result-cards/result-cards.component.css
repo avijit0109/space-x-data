@@ -1,0 +1,38 @@
+.cards-element {
+    width: 100%;
+    background-color: white;
+    border-radius: 4px;
+  }
+  
+  .cards-element-image > img{
+    object-fit: cover;
+    height: 148px;
+    width: 148px;
+    background-color: white;
+  }
+  
+  .card-element-details {
+    height: 203px;
+    background-color: white;
+    overflow-y: hidden;
+    margin-top: 10px;
+    padding-left: 13px;
+    text-align: left;
+  }
+  
+  .card-element-scroll {
+    overflow-y: scroll;
+  }
+  
+  .card-element-details p {
+    font-size: 14px;
+  }
+  
+  .card-element-details ul li {
+    font-size: 14px;
+  }
+  
+  .cards-element__heading {
+    color: rgb(132, 132, 235);
+  }
+  
