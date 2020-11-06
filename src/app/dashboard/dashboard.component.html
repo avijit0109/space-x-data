@@ -1,0 +1,40 @@
+<section>
+  <div class="dashboard-wrapper">
+    <!-- Wrapper box of Filters -->
+    <div class="filter-container">
+      <h2 class="container-heading">Filters</h2>
+
+      <!-- Launch year Filter section -->
+      <div class="filter-heading">Launch year</div>
+      <div class="filter-table">
+        <app-filter-button class="filter-item" *ngFor="let filterVal of filterRange" [filterVal]="filterVal"
+          (click)="filterSelection(filterVal)"></app-filter-button>
+      </div>
+      <!-- Launch year Filter section ends -->
+
+      <!-- Succesful Launch Filter section -->
+      <div class="filter-heading">Succesful Launch</div>
+      <div class="filter-table">
+        <app-filter-button class="filter-item" filterVal="True" (click)="filterSelection(true)"></app-filter-button>
+        <app-filter-button class="filter-item" filterVal="False" (click)="filterSelection(false)"></app-filter-button>
+      </div>
+      <!-- Succesful Launch Filter section ends -->
+
+      <!-- Succesful Landing Filter section -->
+      <div class="filter-heading">Succesful Landing</div>
+      <div class="filter-table">
+        <app-filter-button class="filter-item" filterVal="True" (click)="filterSelection(true)"></app-filter-button>
+        <app-filter-button class="filter-item" filterVal="False" (click)="filterSelection(false)"></app-filter-button>
+      </div>
+      <!-- Succesful Landing Filter section ends -->
+      
+    </div>
+    <div class="cards-container">
+      <div *ngIf="launches$ | async as launches">
+        <li *ngFor="let launch of launches; index as i">
+          {{ i + 1 }}. {{ launch.mission_name}}
+        </li>
+      </div>
+    </div>
+  </div>
+</section>

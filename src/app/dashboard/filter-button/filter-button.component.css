@@ -1,0 +1,21 @@
+/* Style the buttons */
+.btn {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  padding: 12px 16px;
+  width: 80%;
+  background-color: #b3dd52;
+}
+
+/* Add a light background on mouse-over */
+.btn:hover {
+  cursor: pointer;
+  background-color: #66cc00;
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color: #63a91f;
+  color: white;
+}
