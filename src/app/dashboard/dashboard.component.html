@@ -7,24 +7,24 @@
       <!-- Launch year Filter section -->
       <div class="filter-heading">Launch year</div>
       <div class="filter-table">
-        <app-filter-button class="filter-item" *ngFor="let filterVal of filterRange" [filterVal]="filterVal"
-          (click)="filterSelection(filterVal)"></app-filter-button>
+        <app-filter-button class="filter-item" *ngFor="let filterVal of filterRange" [filterVal]="filterVal" [currentVal]="currentYear" 
+          (click)="filterYearSelection(filterVal)"></app-filter-button>
       </div>
       <!-- Launch year Filter section ends -->
 
       <!-- Succesful Launch Filter section -->
       <div class="filter-heading">Succesful Launch</div>
       <div class="filter-table">
-        <app-filter-button class="filter-item" filterVal="True" (click)="filterSelection(true)"></app-filter-button>
-        <app-filter-button class="filter-item" filterVal="False" (click)="filterSelection(false)"></app-filter-button>
+        <app-filter-button class="filter-item" filterVal="True" (click)="filterLaunchSelection(true)"></app-filter-button>
+        <app-filter-button class="filter-item" filterVal="False" (click)="filterLaunchSelection(false)"></app-filter-button>
       </div>
       <!-- Succesful Launch Filter section ends -->
 
       <!-- Succesful Landing Filter section -->
       <div class="filter-heading">Succesful Landing</div>
       <div class="filter-table">
-        <app-filter-button class="filter-item" filterVal="True" (click)="filterSelection(true)"></app-filter-button>
-        <app-filter-button class="filter-item" filterVal="False" (click)="filterSelection(false)"></app-filter-button>
+        <app-filter-button class="filter-item" filterVal="True" (click)="filterLandingSelection(true)"></app-filter-button>
+        <app-filter-button class="filter-item" filterVal="False" (click)="filterLandingSelection(false)"></app-filter-button>
       </div>
       <!-- Succesful Landing Filter section ends -->
       

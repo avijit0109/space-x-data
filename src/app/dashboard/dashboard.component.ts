@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable } from 'rxjs/internal/Observable';
-import { DataService } from '../services/data.service';
+import { Router, ActivatedRoute } from "@angular/router";
+import { Observable } from "rxjs/internal/Observable";
+import { DataService } from "../services/data.service";
 
 @Component({
   selector: "app-dashboard",
@@ -10,18 +11,28 @@ import { DataService } from '../services/data.service';
 export class DashboardComponent implements OnInit {
   public filterRange = this.range(2006, 2020);
   public launches$: Observable<any>;
-  
-  constructor(private dataService: DataService) {}
+  currentYear: number;
+
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.launches$ = this.getAllLaunchesData();
-    this.launches$.subscribe(res => {
-      console.log('{{{{', res);
+    this.route.queryParams.subscribe((params) => {
+      const launch_year = params.launch_year;
+      const launch_success = params.launch_success;
+      const land_success = params.land_success;
+
+      if (!launch_year && !launch_year && !launch_year) {
+        this.launches$ = this.getAllLaunchesData();
+      }
     });
   }
 
   getAllLaunchesData(): Observable<any> {
-   return this.dataService.getAllLaunches();
+    return this.dataService.getAllLaunches();
   }
 
   range(start: number, end: number): number[] {
@@ -30,7 +41,37 @@ export class DashboardComponent implements OnInit {
       .map((val, idx) => start + idx);
   }
 
-  filterSelection(val) {
-    this.launches$ = this.dataService.getLaunchFilterData(val);
+  filterYearSelection(val) {
+    this.currentYear = val;
+    // this.launches$ = this.dataService.getLaunchFilterData(val);
+    this.router.navigate([""], {
+      relativeTo: this.route,
+      queryParams: {
+        launch_year: val,
+      },
+      queryParamsHandling: "merge",
+    });
+  }
+
+  filterLandingSelection(val) {
+    // this.launches$ = this.dataService.getLaunchFilterData(val);
+    this.router.navigate([""], {
+      relativeTo: this.route,
+      queryParams: {
+        land_success: val,
+      },
+      queryParamsHandling: "merge",
+    });
+  }
+
+  filterLaunchSelection(val) {
+    // this.launches$ = this.dataService.getLaunchFilterData(val);
+    this.router.navigate([""], {
+      relativeTo: this.route,
+      queryParams: {
+        launch_success: val,
+      },
+      queryParamsHandling: "merge",
+    });
   }
 }

@@ -10,16 +10,12 @@
   background: white;
   border-radius: 10px;
   padding: 1em;
-  margin-right: 15px;
+  margin-bottom: 20px;
 }
 
 .cards-container,
 .filter-container {
   width: auto;
-}
-.cards-container {
-  padding-right: 25px;
-  margin-top: 10px;
 }
 
 .filter-table {
@@ -31,25 +27,6 @@
 
 .filter-item {
   text-align: center;
-}
-
-@media only screen and (min-width: 700px) {
-  /* For desktop: */
-  .dashboard-wrapper {
-    flex-direction: row;
-  }
-  .filter-container {
-    width: 20%;
-    height: 820px;
-  }
-  .cards-container {
-    width: 80%;
-    padding-right: 0px;
-    margin-top: 0px;
-  }
-  .cards-element {
-    max-width: 212px;
-  }
 }
 
 .filter-heading {
@@ -65,27 +42,24 @@
 
 .cards-element {
   width: 100%;
-    display: inline-block;
-    margin-right: 10px;
-    background-color: white;
-    padding: 5px;
-    border-radius: 4px;
-    margin-bottom: 10px;
+  background-color: white;
+  border-radius: 4px;
 }
 
-.cards-element-image {
+.cards-element-image > img{
   object-fit: cover;
-    height: 148px;
-    background-color: white;
+  height: 148px;
+  width: 148px;
+  background-color: white;
 }
 
 .card-element-details {
-    height: 203px;
-    background-color: white;
-    overflow-y: hidden;
-    margin-top: 10px;
-    padding-left: 13px;
-    text-align: left;
+  height: 203px;
+  background-color: white;
+  overflow-y: hidden;
+  margin-top: 10px;
+  padding-left: 13px;
+  text-align: left;
 }
 
 .card-element-scroll {
@@ -102,9 +76,36 @@
 
 .cards-container-block {
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1em;
 }
 
 .cards-element__heading {
-  color: rgb(132, 132, 235)
+  color: rgb(132, 132, 235);
 }
 
+@media only screen and (min-width: 700px) {
+  /* For desktop: */
+  .dashboard-wrapper {
+    flex-direction: row;
+  }
+  .filter-container {
+    width: 20%;
+    height: 820px;
+    margin-right: 20px;
+  }
+  .cards-container {
+    width: 80%;
+  }
+
+  .cards-container-block {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 700px ) {
+  .cards-container-block {
+    grid-template-columns: 1fr 1fr;
+  }
+}
