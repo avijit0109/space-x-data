@@ -26,30 +26,6 @@ export class DataService {
       .pipe(catchError(this.handleError));
   }
 
-  // Launch Success / failure Filter
-  getLaunchFilterData(launch = true) {
-    return this.http
-      .get(`${API_PREFIX}&launch_success=${launch}`, {})
-      .pipe(catchError(this.handleError));
-  }
-
-  // Launch & Land Success/Failure Filter
-  getLandFilterData(land = true, launch = true) {
-    return this.http
-      .get(`${API_PREFIX}&launch_success=${launch}&land_success=${land}`, {})
-      .pipe(catchError(this.handleError));
-  }
-
-  // Launch & Land Success/Failure Filter Per Year
-  getLaunchsDataPerYear(year: number, land = true, launch = true) {
-    return this.http
-      .get(
-        `${API_PREFIX}&launch_success=${launch}&land_success=${land}&launch_year=${year}`,
-        {}
-      )
-      .pipe(catchError(this.handleError));
-  }
-
   private handleError(err: { error: { message: any; }; status: any; body: { error: any; }; }) {
     let errorMessage: string;
     if (err.error instanceof ErrorEvent) {

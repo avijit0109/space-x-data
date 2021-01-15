@@ -99,24 +99,4 @@ export class DashboardComponent implements OnInit {
       queryParamsHandling: "merge",
     });
   }
-
-  // filterLandingSelection(val: any) {
-  //   this.router.navigate([""], {
-  //     relativeTo: this.route,
-  //     queryParams: {
-  //       land_success: val,
-  //     },
-  //     queryParamsHandling: "merge",
-  //   });
-  // }
-
-  // filterLaunchSelection(val: any) {
-  //   this.router.navigate([""], {
-  //     relativeTo: this.route,
-  //     queryParams: {
-  //       launch_success: val,
-  //     },
-  //     queryParamsHandling: "merge",
-  //   });
-  // }
 }
